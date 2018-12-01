@@ -13,7 +13,6 @@ puts "Part 1: #{sum}"
 found = false
 freqs = Hash.new(0)
 nxt = 0
-part2 = nil
 
 while (!found) do
   nxt = numbers.inject(nxt) do |sum, n| 
@@ -21,12 +20,9 @@ while (!found) do
     freqs[current] += 1
     if freqs[current] > 1
       found = true
-      part2 = current
-      puts "FOUND #{current}"
+      puts "Part 2: #{current}"
       break
     end
     current
   end
 end
-
-puts "Part 2: #{part2}"
