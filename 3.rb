@@ -29,8 +29,7 @@ end
 count = @fabric.map{|row| row.select{|square| square.count > 1}.count}.inject(:+)
 puts "Part 1: #{count}"
 
-require 'set'
-claim_ids = Set.new(@fabric.map{|row| row.select{|square| square.count > 1}}.flatten.uniq)
-all_ids = Set.new((1..@claims.count))
+claim_ids = @fabric.map{|row| row.select{|square| square.count > 1}}.flatten.uniq
+all_ids = (1..@claims.count).to_a
 
 puts "Part 2: #{(all_ids - claim_ids).to_a}"
